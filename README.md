@@ -107,86 +107,105 @@ Q(t+1)=T′Q(t)+TQ(t)′
 
 
 ### PROGRAM 
-/*
+
 ```
+
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
 Developed by: Gayathri A
 RegisterNumber:  212221230028
 
 SR FLIPFLOP:
 
-moduleex5(s,r,clk,q,q1);
-input s,r,clk;
-output q,q1;
-wire x,y;
-nand(x,s,clk);
-nand(y,r,clk);
-nand(q,x,q1);
-nand(q1,y,q);
+module ex05(S,R,Clk,Q,Qbar);
+input S,R,Clk;
+output Q,Qbar;
+wire X,Y;
+nand(X,S,Clk);
+nand(Y,R,Clk);
+nand(Q,X,Qbar);
+nand(Qbar,Y,Q);
 endmodule
 
-JR FLIPFLOP:
+JK FLIPFLOP:
 
-moduleex5(j,k,clk,q,q1);
-input j,k,clk;
-output q,q1;
-wire x,y;
-nand(x,j,clk,q1);
-nand(y,k,clk);
-nand(q,x,q1);
-nand(q1,y,q);
+module ex05(J,K,Clk,Q,Qbar);
+input J,K,Clk;
+output Q,Qbar;
+wire X,Y;
+nand(X,J,Clk,Qbar);
+nand(Y,K,Clk,Q);
+nand(Q,X,Qbar);
+nand(Qbar,Y,Q);
 endmodule
 
 D(DELAY) FLIPFLOP:
 
-module ex05(D,clk,q,q1);
-input D,clk;
-output q,q1;
-assign D1= |D;
+module ex05(D,Clk,Q,Qbar);
+input D,Clk;
+output Q,Qbar;
+assign Dbar= |D;
 wire X,Y;
-nand(X,D,clk);
-nand(Y,D1,clk);
-nand(q,X,q1);
-nand(q1,Y,q);
+nand(X,D,Clk);
+nand(Y,Dbar,Clk);
+nand(Q,X,Qbar);
+nand(Qbar,Y,Q);
 endmodule
-
 
 T(TOGGLE) FLIPFLOP:
 
-module ex05(T,clk,q,q1);
-input T,clk;
-output q,q1;
+module ex05(T,Clk,Q,Qbar);
+input T,Clk;
+output Q,Qbar;
 wire X,Y;
-nand(X,T,clk,q1);
-nand(Y,T,clk,q);
-nand(q,X,q1);
-nand(q1,Y,q);
+nand(X,T,Clk,Qbar);
+nand(Y,T,Clk,Q);
+nand(Q,X,Qbar);
+nand(Qbar,Y,Q);
 endmodule
 ```
-*/
+
+# SR FLIPFLOP: 
+
+### RTL LOGIC FOR FLIPFLOPS :
+
+![51](https://user-images.githubusercontent.com/94154854/195642106-78c4f606-5020-4ebb-aae8-e20422de579c.png)
 
 
+### TIMING DIGRAMS FOR FLIP FLOPS :
+
+![52](https://user-images.githubusercontent.com/94154854/195642365-2f25674d-249d-4c9f-ba7d-aba2e3464408.png)
 
 
+# JK FLIPFLOP: 
 
+### RTL LOGIC FOR FLIPFLOPS :
 
-### RTL LOGIC FOR FLIPFLOPS 
+![53](https://user-images.githubusercontent.com/94154854/195642473-30802053-3596-4663-9e9b-6075521e1122.png)
 
+### TIMING DIGRAMS FOR FLIP FLOPS :
 
+![54](https://user-images.githubusercontent.com/94154854/195642546-27ee8f8c-502c-4266-b8b4-e6d7e84a4b35.png)
 
+### D(DELAY) FLIPFLOP:
 
+### RTL LOGIC FOR FLIPFLOPS :
 
+![55](https://user-images.githubusercontent.com/94154854/195642884-4093f22f-ab49-4735-8b69-03504e558315.png)
 
+### TIMING DIGRAMS FOR FLIP FLOPS :
 
+![56](https://user-images.githubusercontent.com/94154854/195642929-d76082a7-43e3-4a2e-a6ed-223444153c22.png)
 
+### T(TOGGLE) FLIPFLOP:
 
-### TIMING DIGRAMS FOR FLIP FLOPS 
+### RTL LOGIC FOR FLIPFLOPS:
 
+![57](https://user-images.githubusercontent.com/94154854/195643085-ad3b1e60-7b2d-4754-908c-605fbe60f316.png)
 
+### TIMING DIGRAMS FOR FLIP FLOPS :
 
+![58](https://user-images.githubusercontent.com/94154854/195643138-e788d9c8-29ce-4bd3-baff-69978f22def7.png)
 
+### RESULTS :
 
-
-
-
-### RESULTS 
+All the flipflops are implementde using verilog and their functionality has been validated using their functional tables.
